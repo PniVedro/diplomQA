@@ -18,17 +18,17 @@ import static ru.netology.data.SQLHelper.cleanDB;
 
 public class CreditUITests {
     @BeforeAll
-    public static void setUpAll() {
+    public static void setupAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @BeforeEach
-    public void setUp() {
+    public void setup() {
         open("http://localhost:8080/");
     }
 
     @AfterAll
-    static void tearDown() {
+    public static void cleanDataBase() {
         cleanDB();
     }
 

@@ -24,17 +24,12 @@ public class APITests {
     private static final String paymentUrl = "/payment";
 
     @BeforeAll
-    public static void setUpAll() {
+    public static void setupAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @BeforeAll
-    public static void setUp() {
-        cleanDB();
-    }
-
-    @AfterEach
-    public void tearDown() {
+    @BeforeEach
+    public  void cleanDataBase() {
         cleanDB();
     }
 

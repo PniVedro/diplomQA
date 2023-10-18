@@ -28,8 +28,8 @@ public class PaymentUITests {
         open("http://localhost:8080/");
     }
 
-//    @AfterAll
-    public static void tearDown() {
+    @AfterAll
+    public static void cleanDataBase() {
         cleanDB();
     }
 
