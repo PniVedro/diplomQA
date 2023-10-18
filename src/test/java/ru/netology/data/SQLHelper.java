@@ -75,24 +75,24 @@ public class SQLHelper {
     public static List<PaymentEntity> getPayments() {
         getConn();
         var querySQL = "SELECT * FROM payment_entity;";
-        ResultSetHandler<List<PaymentEntity>> resultHandler = new BeanListHandler<>(PaymentEntity.class);
-        return runner.query(getConn(), querySQL, resultHandler);
+        ResultSetHandler<List<PaymentEntity>> result = new BeanListHandler<>(PaymentEntity.class);
+        return runner.query(getConn(), querySQL, result);
     }
 
     @SneakyThrows
     public static List<CreditRequestEntity> getCreditRequests() {
         getConn();
         var querySQL = "SELECT * FROM credit_request_entity;";
-        ResultSetHandler<List<CreditRequestEntity>> resultHandler = new BeanListHandler<>(CreditRequestEntity.class);
-        return runner.query(getConn(), querySQL, resultHandler);
+        ResultSetHandler<List<CreditRequestEntity>> result = new BeanListHandler<>(CreditRequestEntity.class);
+        return runner.query(getConn(), querySQL, result);
     }
 
     @SneakyThrows
     public static List<OrderEntity> getOrders() {
         getConn();
         var querySQL = "SELECT * FROM order_entity;";
-        ResultSetHandler<List<OrderEntity>> resultHandler = new BeanListHandler<>(OrderEntity.class);
-        return runner.query(getConn(), querySQL, resultHandler);
+        ResultSetHandler<List<OrderEntity>> result = new BeanListHandler<>(OrderEntity.class);
+        return runner.query(getConn(), querySQL, result);
     }
 
     @SneakyThrows
@@ -116,12 +116,6 @@ public class SQLHelper {
         return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
     }
 
-    @SneakyThrows
-    public static String getCreditID() {
-        getConn();
-        var paymentStatus = "SELECT credit_id FROM order_entity;";
-        return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
-    }
 
     @SneakyThrows
     public static String getBankIDForPayment() {
@@ -130,12 +124,6 @@ public class SQLHelper {
         return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
     }
 
-    @SneakyThrows
-    public static String getBankIDForCredit() {
-        getConn();
-        var paymentStatus = "SELECT bank_id FROM credit_request_entity;";
-        return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
-    }
 
     @SneakyThrows
     public static void cleanDB() {
