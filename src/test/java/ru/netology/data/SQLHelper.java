@@ -99,31 +99,16 @@ public class SQLHelper {
     public static String getPaymentStatus() {
         getConn();
         var paymentStatus = "SELECT status FROM payment_entity;";
-        return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
+       return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
+
     }
 
     @SneakyThrows
     public static String getCreditStatus() {
         getConn();
-        var paymentStatus = "SELECT status FROM credit_request_entity;";
-        return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
+        var creditStatus = "SELECT status FROM credit_request_entity;";
+        return runner.query(getConn(), creditStatus, new ScalarHandler<>());
     }
-
-    @SneakyThrows
-    public static String getPaymentID() {
-        getConn();
-        var paymentStatus = "SELECT payment_id FROM order_entity;";
-        return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
-    }
-
-
-    @SneakyThrows
-    public static String getBankIDForPayment() {
-        getConn();
-        var paymentStatus = "SELECT bank_id FROM payment_entity;";
-        return runner.query(getConn(), paymentStatus, new ScalarHandler<>());
-    }
-
 
     @SneakyThrows
     public static void cleanDB() {

@@ -41,18 +41,15 @@ public class DataHelper {
         return faker.numerify("###");
     }
 
-    public static CardInfo getValidCardApproved() {
-        return new CardInfo("4444 4444 4444 4441", getMonth(1), getYear(1), getValidHolder(),
-                getValidCvc());
-    }
+
 
     public static CardInfo getValidCardDeclined() {
         return new CardInfo("4444 4444 4444 4442", getMonth(1), getYear(1), getValidHolder(),
                 getValidCvc());
     }
 
-    public static CardInfo getValidCardApprovedWithoutSpaces() {
-        return new CardInfo("4444444444444441", getMonth(1), getYear(1), getValidHolder(),
+    public static CardInfo getValidCardApproved() {
+        return new CardInfo("4444 4444 4444 4441", getMonth(1), getYear(1), getValidHolder(),
                 getValidCvc());
     }
 

@@ -37,12 +37,12 @@ public class PaymentPage {
     }
 
     public void getSuccessNotification() {
-        successNotification.should(visible, Duration.ofSeconds(15));
+        successNotification.shouldBe(visible, Duration.ofSeconds(15));
 
     }
 
     public void getErrorNotification() {
-        errorNotification.should(visible, Duration.ofSeconds(15));
+        errorNotification.shouldBe(visible, Duration.ofSeconds(15));
 
     }
 
