@@ -17,11 +17,11 @@
 
 ## Документация
 
-[План автоматизации тестирования веб-формы сервиса покупки туров интернет-банка]()
+[План автоматизации тестирования веб-формы сервиса покупки туров интернет-банка](https://github.com/PniVedro/diplomQA/blob/main/Reports/Plan.md)
 
-[Отчёт о проведённом тестировании]()
+[Отчёт о проведённом тестировании](https://github.com/PniVedro/diplomQA/blob/main/Reports/Report.md)
 
-[Отчет о проведенной автоматизации ]()
+[Отчет о проведенной автоматизации ](https://github.com/PniVedro/diplomQA/blob/main/Reports/Summary.md)
 
 ## 1. Необходимое окружение.
 * IntelliJ IDEA
