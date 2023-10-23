@@ -41,7 +41,7 @@ public class UITests {
 
     // Positive tests
 
-    @DisplayName(value = "Покупка тура с действующей карты")
+    @DisplayName("Покупка тура с действующей карты")
     @Test
     public void shouldValidCardApproved() {
         MainPage mainPage = new MainPage();
@@ -52,7 +52,7 @@ public class UITests {
         assertEquals("APPROVED", SQLHelper.getPaymentStatus());
     }
 
-    @DisplayName(value = "Покупка тура с недействующей карты")
+    @DisplayName("Покупка тура с недействующей карты")
     @Test
     public void shouldValidCardDeclined() {
         MainPage mainPage = new MainPage();
@@ -62,7 +62,7 @@ public class UITests {
         paymentPage.getErrorNotification();
         assertEquals("DECLINED", SQLHelper.getPaymentStatus());
     }
-    @DisplayName(value = "Покупка тура в кредит с действующей карты")
+    @DisplayName("Покупка тура в кредит с действующей карты")
     @Test
     public void shouldValidCreditCardApproved() {
         MainPage mainPage = new MainPage();
@@ -73,7 +73,7 @@ public class UITests {
         assertEquals("APPROVED", SQLHelper.getCreditStatus());
     }
 
-    @DisplayName(value = "Покупка тура в кредит с недействующей карты")
+    @DisplayName("Покупка тура в кредит с недействующей карты")
     @Test
     public void shouldValidCreditCardDeclined() {
         MainPage mainPage = new MainPage();
@@ -86,7 +86,7 @@ public class UITests {
 
     //Negative tests/Validation
 
-    @DisplayName(value = "Поле Номер карты 11 цифр")
+    @DisplayName("Поле Номер карты 11 цифр")
     @Test
     public void shouldNumberField11char() {
         MainPage mainPage = new MainPage();
@@ -97,7 +97,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Номер карты 20 цифр")
+    @DisplayName("Поле Номер карты 20 цифр")
     @Test
     public void shouldNumberField20char() {
         MainPage mainPage = new MainPage();
@@ -107,7 +107,7 @@ public class UITests {
         paymentPage.getErrorNotification();
     }
 
-    @DisplayName(value = "Поле Номер карты 16 цифр")
+    @DisplayName("Поле Номер карты 16 цифр")
     @Test
     public void shouldNumberField16char() {
         MainPage mainPage = new MainPage();
@@ -118,7 +118,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Номер карты 19 цифр")
+    @DisplayName("Поле Номер карты 19 цифр")
     @Test
     public void shouldNumberField19char() {
         MainPage mainPage = new MainPage();
@@ -129,7 +129,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Номер карты символы")
+    @DisplayName("Поле Номер карты символы")
     @Test
     public void shouldNumberFieldSymbols() {
         MainPage mainPage = new MainPage();
@@ -140,7 +140,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Номер карты пустое")
+    @DisplayName("Поле Номер карты пустое")
     @Test
     public void shouldNumberFieldEmpty() {
         MainPage mainPage = new MainPage();
@@ -151,7 +151,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Месяц число больше 12")
+    @DisplayName("Поле Месяц число больше 12")
     @Test
     public void shouldMonthFieldMore12() {
         MainPage mainPage = new MainPage();
@@ -162,7 +162,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Месяц число 00")
+    @DisplayName("Поле Месяц число 00")
     @Test
     public void shouldMonthFieldNull() {
         MainPage mainPage = new MainPage();
@@ -173,7 +173,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Месяц 1 число")
+    @DisplayName("Поле Месяц 1 число")
     @Test
     public void shouldMonthField1char() {
         MainPage mainPage = new MainPage();
@@ -184,7 +184,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Месяц математические символы")
+    @DisplayName("Поле Месяц математические символы")
     @Test
     public void shouldMonthFieldSymbols() {
         MainPage mainPage = new MainPage();
@@ -195,7 +195,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Месяц меньше текущего")
+    @DisplayName("Поле Месяц меньше текущего")
     @Test
     public void shouldMonthFieldLessCurrent() {
         MainPage mainPage = new MainPage();
@@ -206,7 +206,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Месяц пустое")
+    @DisplayName("Поле Месяц пустое")
     @Test
     public void shouldMonthFieldEmpty() {
         MainPage mainPage = new MainPage();
@@ -217,7 +217,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Год меньше текущего")
+    @DisplayName("Поле Год меньше текущего")
     @Test
     public void shouldYearFieldLessCurrent() {
         MainPage mainPage = new MainPage();
@@ -228,7 +228,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Год число 00")
+    @DisplayName("Поле Год число 00")
     @Test
     public void shouldYearFieldNull() {
         MainPage mainPage = new MainPage();
@@ -239,7 +239,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Год пустое")
+    @DisplayName("Поле Год пустое")
     @Test
     public void shouldYearFieldEmpty() {
         MainPage mainPage = new MainPage();
@@ -250,7 +250,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец с пробелом в середине")
+    @DisplayName("Поле Владелец с пробелом в середине")
     @Test
     public void shouldHolderFieldWithSpaceMiddle() {
         MainPage mainPage = new MainPage();
@@ -261,7 +261,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец с дефисом в середине")
+    @DisplayName("Поле Владелец с дефисом в середине")
     @Test
     public void shouldHolderFieldWithDashMiddle() {
         MainPage mainPage = new MainPage();
@@ -272,7 +272,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец с дефисом в начале")
+    @DisplayName("Поле Владелец с дефисом в начале")
     @Test
     public void shouldHolderFieldWithDashFirst() {
         MainPage mainPage = new MainPage();
@@ -283,7 +283,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец с дефисом в конце")
+    @DisplayName("Поле Владелец с дефисом в конце")
     @Test
     public void shouldHolderFieldWithDashEnd() {
         MainPage mainPage = new MainPage();
@@ -294,7 +294,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец с пробелом в начале")
+    @DisplayName("Поле Владелец с пробелом в начале")
     @Test
     public void shouldHolderFieldWithSpaceFirst() {
         MainPage mainPage = new MainPage();
@@ -305,7 +305,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец с пробелом в конце")
+    @DisplayName("Поле Владелец с пробелом в конце")
     @Test
     public void shouldHolderFieldWithSpaceEnd() {
         MainPage mainPage = new MainPage();
@@ -316,7 +316,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец нижний регистр")
+    @DisplayName("Поле Владелец нижний регистр")
     @Test
     public void shouldHolderFieldLowercase() {
         MainPage mainPage = new MainPage();
@@ -327,7 +327,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец кириллицей")
+    @DisplayName("Поле Владелец кириллицей")
     @Test
     public void shouldHolderFieldRu() {
         MainPage mainPage = new MainPage();
@@ -338,7 +338,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец латиницей и числами")
+    @DisplayName("Поле Владелец латиницей и числами")
     @Test
     public void shouldHolderFieldNumbers() {
         MainPage mainPage = new MainPage();
@@ -349,7 +349,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец латиницей и спецсимволами")
+    @DisplayName("Поле Владелец латиницей и спецсимволами")
     @Test
     public void shouldHolderFieldSymbols() {
         MainPage mainPage = new MainPage();
@@ -360,7 +360,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле Владелец пустое")
+    @DisplayName("Поле Владелец пустое")
     @Test
     public void shouldHolderFieldEmpty() {
         MainPage mainPage = new MainPage();
@@ -371,7 +371,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле CVC/CVV 2 цифры")
+    @DisplayName("Поле CVC/CVV 2 цифры")
     @Test
     public void shouldCVCField2char() {
         MainPage mainPage = new MainPage();
@@ -382,7 +382,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле CVC/CVV 4 цифры")
+    @DisplayName("Поле CVC/CVV 4 цифры")
     @Test
     public void shouldCVCField4char() {
         MainPage mainPage = new MainPage();
@@ -393,7 +393,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле CVC/CVV символами")
+    @DisplayName("Поле CVC/CVV символами")
     @Test
     public void shouldCVCFieldSymbols() {
         MainPage mainPage = new MainPage();
@@ -404,7 +404,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Поле CVC/CVV пустое")
+    @DisplayName("Поле CVC/CVV пустое")
     @Test
     public void shouldCVCFieldEmpty() {
         MainPage mainPage = new MainPage();
@@ -415,7 +415,7 @@ public class UITests {
     }
 
 
-    @DisplayName(value = "Все поля пустые")
+    @DisplayName("Все поля пустые")
     @Test
     public void shouldAllFieldsEmpty() {
         MainPage mainPage = new MainPage();
