@@ -40,7 +40,7 @@
 4. Открыть проект в IntelliJ IDEA
 
 ## Запуск
-1. Запустить контейнеры командой в корне проекта `docker-compose up`
+1. Запустить контейнеры командой в терминале `docker-compose up`
 
 2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных
 - `java -jar artifacts/aqa-shop.jar --spring.datasource.url=jdbc:mysql://localhost:3306/app

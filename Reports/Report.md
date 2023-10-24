@@ -13,12 +13,12 @@
 
 Всего в тестировании проведено 51 теста:
 
-* 23 пройдено успешно (45,09%)
-* 28 не пройдено (54,91%)
+* 22 пройдено успешно (43,13%)
+* 29 не пройдено (56,87%)
 
-(![report](img/img.png))
-![report_2](img/img_1.png)
-![report_3](img/img_2.png)
+![img.png](img/img.png)
+![img_1.png](img/img_1.png)
+![img_2.png](img/img_2.png)
 
 По результатам тестирования были заведены [баг-репорты](https://github.com/PniVedro/diplomQA/issues)
 
