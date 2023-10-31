@@ -10,6 +10,10 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class SQLHelper {
+    private static String url = System.getProperty("dbUrl");
+    private static String user = System.getProperty("dbUser");
+    private static String password = System.getProperty("dbPassword");
+
 
     private static final QueryRunner runner = new QueryRunner();
     private SQLHelper() {
@@ -17,7 +21,7 @@ public class SQLHelper {
 
     @SneakyThrows
     public static Connection getConn() {
-        return DriverManager.getConnection(System.getProperty("dbUrl"), System.getProperty("app"), System.getProperty("pass"));
+        return DriverManager.getConnection(url, user, password);
     }
 
     @Data
