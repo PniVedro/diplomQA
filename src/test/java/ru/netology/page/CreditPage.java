@@ -22,7 +22,6 @@ public class CreditPage {
     private SelenideElement successNotification = $(".notification_status_ok");
     private SelenideElement errorNotification = $(".notification_status_error");
     private SelenideElement inputInvalidSub = $(".input__sub");
-
     public CreditPage() {
         heading.shouldBe(visible);
 
@@ -46,8 +45,8 @@ public class CreditPage {
         errorNotification.should(visible, Duration.ofSeconds(15));
 
     }
-
     public void getInputInvalidSub(String message) {
         inputInvalidSub.shouldBe(visible).shouldHave(text(message));
     }
+
 }

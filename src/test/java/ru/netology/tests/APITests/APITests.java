@@ -1,9 +1,10 @@
-package ru.netology.tests;
+package ru.netology.tests.APITests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.netology.data.SQLHelper;
+import ru.netology.data.ApiHelper;
 import ru.netology.data.DataHelper;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -42,11 +43,11 @@ public class APITests {
     @Test
     public void shouldValidCardApprovedEntityAdded() {
         var cardInfo = DataHelper.getValidCardApproved();
-        SQLHelper.getData(cardInfo, paymentUrl, 200);
+        ApiHelper.getData(cardInfo, paymentUrl, 200);
         payments = SQLHelper.getPayments();
 
         assertEquals(1, payments.size());
-        assertEquals("APPROVED", SQLHelper.getPaymentStatus());
+        assertEquals("APPROVED", payments.get(0).getStatus());
     }
 
 
@@ -54,11 +55,11 @@ public class APITests {
     @Test
     public void shouldValidCardDeclinedEntityAdded() {
         var cardInfo = DataHelper.getValidCardDeclined();
-        SQLHelper.getData(cardInfo, paymentUrl, 200);
+        ApiHelper.getData(cardInfo, paymentUrl, 200);
         payments = SQLHelper.getPayments();
 
         assertEquals(1, payments.size());
-        assertEquals("DECLINED", SQLHelper.getPaymentStatus());
+        assertEquals("DECLINED", payments.get(0).getStatus());
     }
 
     
@@ -66,7 +67,7 @@ public class APITests {
     @Test
     public void shouldPOSTBodyEmpty() {
         var cardInfo = DataHelper.getAllEmpty();
-        SQLHelper.getData(cardInfo, paymentUrl, 400);
+        ApiHelper.getData(cardInfo, paymentUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -81,7 +82,7 @@ public class APITests {
     @Test
     public void shouldPOSTNumberEmpty() {
         var cardInfo = DataHelper.getCardEmpty();
-        SQLHelper.getData(cardInfo, paymentUrl, 400);
+        ApiHelper.getData(cardInfo, paymentUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -96,7 +97,7 @@ public class APITests {
     @Test
     public void shouldPOSTMonthEmpty() {
         var cardInfo = DataHelper.getMonthEmpty();
-        SQLHelper.getData(cardInfo, paymentUrl, 400);
+        ApiHelper.getData(cardInfo, paymentUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -111,7 +112,7 @@ public class APITests {
     @Test
     public void shouldPOSTYearEmpty() {
         var cardInfo = DataHelper.getYearEmpty();
-        SQLHelper.getData(cardInfo, paymentUrl, 400);
+        ApiHelper.getData(cardInfo, paymentUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -126,7 +127,7 @@ public class APITests {
     @Test
     public void shouldPOSTHolderEmpty() {
         var cardInfo = DataHelper.getHolderEmpty();
-        SQLHelper.getData(cardInfo, paymentUrl, 400);
+        ApiHelper.getData(cardInfo, paymentUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -141,7 +142,7 @@ public class APITests {
     @Test
     public void shouldPOSTCvcEmpty() {
         var cardInfo = DataHelper.getCvcEmpty();
-        SQLHelper.getData(cardInfo, paymentUrl, 400);
+        ApiHelper.getData(cardInfo, paymentUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -156,11 +157,11 @@ public class APITests {
     @Test
     public void shouldValidTestCreditCardApprovedEntityAdded() {
         var cardInfo = DataHelper.getValidCardApproved();
-        SQLHelper.getData(cardInfo, creditUrl, 200);
+        ApiHelper.getData(cardInfo, creditUrl, 200);
         credits = SQLHelper.getCreditRequests();
         
         assertEquals(1, credits.size());
-        assertEquals("APPROVED", SQLHelper.getCreditStatus());
+        assertEquals("APPROVED", credits.get(0).getStatus());
     }
 
 
@@ -168,11 +169,11 @@ public class APITests {
     @Test
     public void shouldValidTestCreditCardDeclinedEntityAdded() {
         var cardInfo = DataHelper.getValidCardDeclined();
-        SQLHelper.getData(cardInfo, creditUrl, 200);
+        ApiHelper.getData(cardInfo, creditUrl, 200);
         credits = SQLHelper.getCreditRequests();
 
         assertEquals(1, credits.size());
-        assertEquals("DECLINED", SQLHelper.getCreditStatus());
+        assertEquals("DECLINED", credits.get(0).getStatus());
     }
 
 
@@ -180,7 +181,7 @@ public class APITests {
     @Test
     public void shouldCreditPOSTBodyEmpty() {
         var cardInfo = DataHelper.getAllEmpty();
-        SQLHelper.getData(cardInfo, creditUrl, 400);
+        ApiHelper.getData(cardInfo, creditUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -195,7 +196,7 @@ public class APITests {
     @Test
     public void shouldCreditPOSTNumberEmpty() {
         var cardInfo = DataHelper.getCardEmpty();
-        SQLHelper.getData(cardInfo, creditUrl, 400);
+        ApiHelper.getData(cardInfo, creditUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -210,7 +211,7 @@ public class APITests {
     @Test
     public void shouldCreditPOSTMonthEmpty() {
         var cardInfo = DataHelper.getMonthEmpty();
-        SQLHelper.getData(cardInfo, creditUrl, 400);
+        ApiHelper.getData(cardInfo, creditUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -225,7 +226,7 @@ public class APITests {
     @Test
     public void shouldCreditPOSTYearEmpty() {
         var cardInfo = DataHelper.getYearEmpty();
-        SQLHelper.getData(cardInfo, creditUrl, 400);
+        ApiHelper.getData(cardInfo, creditUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -240,7 +241,7 @@ public class APITests {
     @Test
     public void shouldCreditPOSTHolderEmpty() {
         var cardInfo = DataHelper.getHolderEmpty();
-        SQLHelper.getData(cardInfo, creditUrl, 400);
+        ApiHelper.getData(cardInfo, creditUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
@@ -255,7 +256,7 @@ public class APITests {
     @Test
     public void shouldCreditPOSTCvcEmpty() {
         var cardInfo = DataHelper.getCvcEmpty();
-        SQLHelper.getData(cardInfo, creditUrl, 400);
+        ApiHelper.getData(cardInfo, creditUrl, 400);
         payments = SQLHelper.getPayments();
         credits = SQLHelper.getCreditRequests();
         orders = SQLHelper.getOrders();
