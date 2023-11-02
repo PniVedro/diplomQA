@@ -39,9 +39,10 @@ public class PaymentTests {
 
     // Positive tests
 
-    @DisplayName("Покупка тура с действующей карты")
+
+    @DisplayName("Покупка тура с действующей карты ")
     @Test
-    public void shouldValidCardApproved() {
+    public void shouldValidCardApproved_2() {
         var mainPage = new MainPage();
         var cardInfo = DataHelper.getValidCardApproved();
         var paymentPage = mainPage.paymentButtonClick();
@@ -49,7 +50,6 @@ public class PaymentTests {
         var payments = SQLHelper.getPayments();
         assertEquals("APPROVED", payments.get(0).getStatus());
     }
-
     @DisplayName("Покупка тура с недействующей карты")
     @Test
     public void shouldValidCardDeclined() {
